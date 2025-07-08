@@ -21,7 +21,7 @@ return {
       map("n", "gi", vim.lsp.buf.implementation)
       map("n", "<leader>rn", vim.lsp.buf.rename)
       map("n", "<leader>ca", vim.lsp.buf.code_action)
-      map("n", "<leader>e", vim.diagnostic.open_float)
+      map("n", "<leader>gl", vim.diagnostic.open_float)
     end
 
     -- List of servers and any custom config if needed
