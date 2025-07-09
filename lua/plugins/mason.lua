@@ -21,14 +21,22 @@ return {
       ensure_installed = {
         "pyright",
         "lua_ls",
+        "clangd",
+        "ts_ls",
         "html",
         "cssls",
-        "clangd",
         "emmet_language_server",
         "eslint",
-        "ts_ls",
+        "tailwindcss",
+        "jsonls",
+        "yamlls",
+        "marksman",
+        "dockerls",
+        "prismals",
+        "graphql",
       },
     })
+
   end,
 
 }

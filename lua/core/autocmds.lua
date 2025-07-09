@@ -52,12 +52,23 @@ autocmd("FileType", {
   desc = "Close certain filetypes with q",
 })
 
-
--- Displays the warning of lsp
 vim.diagnostic.config({
-  virtual_text = true,
-  -- virtual_lines = true,
-  signs = true,
+  virtual_text = {
+    prefix = "●",  -- small dot before virtual text
+    spacing = 4,
+  },
   underline = true,
+  signs = {
+    active = true,  -- ensure sign column uses your icons
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN]  = "",
+      [vim.diagnostic.severity.INFO]  = "",
+      [vim.diagnostic.severity.HINT]  = "",
+    },
+  },
+  float = { border = "rounded" },
   update_in_insert = false,
+  severity_sort = true,
 })
+
