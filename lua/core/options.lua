@@ -24,8 +24,8 @@ opt.background = "dark"   -- Dark background
 opt.signcolumn = "yes"    -- Always show sign column
 opt.cursorline = true
 opt.wrap = false          -- Don't wrap long lines
-opt.scrolloff = 8         -- Keep 8 lines visible when scrolling
-opt.sidescrolloff = 8     -- Keep 8 columns visible when scrolling
+opt.scrolloff = 10         -- Keep 8 lines visible when scrolling
+opt.sidescrolloff = 10     -- Keep 8 columns visible when scrolling
 
 -- Behavior
 opt.mouse = "a"           -- Enable mouse support
