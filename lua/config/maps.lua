@@ -60,6 +60,8 @@ keymap("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
 -- Open Oil file explorer
 keymap("n", "-", ":Oil --float<CR>", { noremap = true, silent = true })
+-- keymap("n", "<leader>e", ":Oil --float<CR>", { noremap = true, silent = true })
+
 
 -- Telescope keybindings
 local builtin = require("telescope.builtin")

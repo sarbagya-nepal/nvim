@@ -21,21 +21,13 @@ return {
 
 			mason_lspconfig.setup({
 				ensure_installed = {
-					"pyright",
 					"lua_ls",
-					"clangd",
 					"ts_ls",
 					"html",
 					"cssls",
 					"emmet_language_server",
 					"eslint",
 					"tailwindcss",
-					"jsonls",
-					"yamlls",
-					"marksman",
-					"dockerls",
-					"prismals",
-					"graphql",
 				},
 			})
 		end,
@@ -50,13 +42,6 @@ return {
 					"prettier",
 					"prettierd",
 					"eslint_d",
-
-					-- Python
-					"black",
-					"isort",
-
-					-- C/C++
-					"clang-format",
 
 					-- Lua (for Neovim config)
 					"stylua",

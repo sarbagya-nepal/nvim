@@ -1,6 +1,7 @@
 return {
   {
     "hrsh7th/nvim-cmp",
+  event = "InsertEnter",
     dependencies = {
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
@@ -18,7 +19,7 @@ return {
 
       cmp.setup({
         completion = {
-          completeopt = "menu,menuone,noinsert",
+          completeopt = "menu,menuone,preview,noinsert",
         },
 
         snippet = {
@@ -90,4 +91,3 @@ return {
     "onsails/lspkind.nvim", -- ⬅️ add this plugin for VS Code–like icons
   },
 }
-
