@@ -3,10 +3,6 @@ local set=vim.opt
 set.number=true
 set.relativenumber=true
 set.numberwidth=2
-set.cursorline=true
-set.background="dark"
-set.clipboard="unnamedplus"
-set.mouse='a'
 
 set.tabstop=2
 set.shiftwidth=2
@@ -19,12 +15,24 @@ set.smartcase = true -- Override ignorecase if search contains uppercase
 set.hlsearch = true -- Highlight search results
 set.incsearch = true -- Show search matches as you type
 
+set.termguicolors = true
+set.background="dark"
 set.signcolumn = "yes" -- Always show sign column
+set.cursorline=true
+
+-- Backspace
+set.backspace = "indent,eol,start"
+
+-- Consider - as part of keyword
+set.iskeyword:append("-")
+
+set.clipboard="unnamedplus"
+
 set.wrap = false -- Don't wrap long lines
 set.scrolloff = 999 -- Keep 8 lines visible when scrolling
 set.sidescrolloff = 10 -- Keep 8 columns visible when scrolling
+set.mouse='a'
 
-set.termguicolors = true
 
 set.splitright = true
 set.splitbelow = true
@@ -56,3 +64,6 @@ vim.cmd("nnoremap <silent> p p`]")
 
 -- Fixes pasting after visual selection.
 vim.keymap.set("v", "p", '"_dP')
+
+
+set.fileencoding = "utf-8"
