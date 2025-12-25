@@ -19,11 +19,35 @@ return {
 				"json",
 			})
 
-			-- Enable highlighting with autocmd
+			-- Enable highlighting for ALL installed parsers automatically
 			vim.api.nvim_create_autocmd("FileType", {
-				pattern = { "lua", "html", "css" },
+				pattern = "*",
 				callback = function()
-					vim.treesitter.start()
+					local buf = vim.api.nvim_get_current_buf()
+					local ft = vim.bo[buf].filetype
+
+					-- Skip special filetypes that don't have parsers
+					local excluded_fts = {
+						"TelescopePrompt",
+						"TelescopeResults",
+						"",
+						"help",
+						"lazy",
+						"mason",
+					}
+
+					for _, excluded in ipairs(excluded_fts) do
+						if ft == excluded then
+							return
+						end
+					end
+
+					-- Try to start treesitter if parser exists
+					local ok = pcall(vim.treesitter.start)
+					if not ok then
+						-- Silently ignore if parser doesn't exist
+						return
+					end
 				end,
 			})
 		end,
