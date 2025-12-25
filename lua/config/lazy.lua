@@ -1,14 +1,14 @@
 -- bootstrap lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "--single-branch",
-    "https://github.com/folke/lazy.nvim.git",
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"--single-branch",
+		"https://github.com/folke/lazy.nvim.git",
+		lazypath,
+	})
 end
 vim.opt.runtimepath:prepend(lazypath)
 
@@ -16,13 +16,10 @@ vim.opt.runtimepath:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require("lazy").setup(
-  {
-    { import = "plugins" },
-  },
-  {
-    checker = { enabled = false, notify = false },
-    install = { colorscheme = { "kanso" } },
-    change_detection = { notify = false },
-  }
-)
+require("lazy").setup({
+	{ import = "plugins" },
+}, {
+	checker = { enabled = false, notify = false },
+	install = { colorscheme = { "tokyonight" } },
+	change_detection = { notify = false },
+})

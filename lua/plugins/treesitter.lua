@@ -1,19 +1,31 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
-  lazy = false,
-  config = function()
-    vim.opt.termguicolors = true
-    vim.cmd("syntax enable")
+	{
+		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
+		lazy = false,
+		build = ":TSUpdate",
+		config = function()
+			local treesitter = require("nvim-treesitter")
 
-    local ok, ts_configs = pcall(require, "nvim-treesitter.configs")
-    if not ok then return end
+			-- Install parsers
+			treesitter.install({
+				"lua",
+				"html",
+				"css",
+				"scss",
+				"javascript",
+				"typescript",
+				"tsx",
+				"json",
+			})
 
-    ts_configs.setup {
-      ensure_installed = { "html","css","scss","javascript","typescript","tsx","json","lua" },
-      auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true },
-    }
-  end
+			-- Enable highlighting with autocmd
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "lua", "html", "css" },
+				callback = function()
+					vim.treesitter.start()
+				end,
+			})
+		end,
+	},
 }
